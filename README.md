@@ -29,3 +29,5 @@ To run this program:
 open one terminal and type:
 
 python ./vpn_setup.py
+
+press CTRL-C to terminate the connection

@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import requests
 from bs4 import BeautifulSoup
 import urllib2
@@ -57,7 +59,7 @@ if len(vpn_tuples) == 0:
 else:    
     navi_url = url + vpn_tuples[0].url
     navi_url = navi_url.replace("&amp;", "&")
-    print "Connecting to "+ vpn_tuples[0].country + "VPN with ping delay " +  str(vpn_tuples[0].delay) +"ms"
+    print "Connecting to "+ vpn_tuples[0].country + " VPN with ping delay " +  str(vpn_tuples[0].delay) +"ms"
     #print  navi_url
 
 
@@ -76,10 +78,12 @@ if len(vpn_file_urls) != 0:
         #print vpn_file_urls[i]
         i +=1
     ovpn_file_url = host_url + vpn_file_urls[0]
-    print ovpn_file_url
+    #print ovpn_file_url
     download_path = "/tmp/"
     downloaded_file_name  = str(vpn_tuples[0].country).replace(" ","")+"_" + str(vpn_tuples[0].delay)+"ms.ovpn"
+    print "config file " + downloaded_file_name + " downloaded at /tmp/" 
     urllib.urlretrieve(ovpn_file_url, download_path+downloaded_file_name)
+    print "need sudo to run openvpn"
     os.system("sudo openvpn --config " + download_path + downloaded_file_name)
 
 else:
