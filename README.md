@@ -30,4 +30,10 @@ open one terminal and type:
 
 python ./vpn_setup.py
 
+
 press CTRL-C to terminate the connection
+
+
+Drouble Shooting:
+=================
+if it prints "Initialization Sequence Completed" in the end, meaning connected successfully, otherwise there might be problem regarding firewall 
